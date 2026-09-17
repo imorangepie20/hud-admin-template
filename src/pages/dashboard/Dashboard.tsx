@@ -7,10 +7,12 @@ import {
     Globe,
     Clock,
     ArrowUpRight,
+    Star,
 } from 'lucide-react'
 import HudCard from '../../components/common/HudCard'
 import StatCard from '../../components/common/StatCard'
 import Button from '../../components/common/Button'
+import PremiumCard from '../../components/ui/PremiumCard'
 
 // Sample data
 const recentOrders = [
@@ -96,6 +98,14 @@ const Dashboard = () => {
                     variant="default"
                 />
             </div>
+            {/* Premium Card showcase */}
+            <PremiumCard
+                title="Premium Insights"
+                value="+23%"
+                change={23}
+                icon={<Star size={24} />}
+                variant="primary"
+            />
 
             {/* Charts Row */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -142,9 +152,9 @@ const Dashboard = () => {
                                         className={`h-full bg-${stat.color} rounded-full transition-all duration-500`}
                                         style={{
                                             width: `${stat.value}%`,
-                                            background: stat.color === 'hud-accent-primary' ? '#00FFCC' :
-                                                stat.color === 'hud-accent-info' ? '#6366F1' :
-                                                    stat.color === 'hud-accent-warning' ? '#FFA500' : '#FF1493'
+                                            background: stat.color === 'hud-accent-primary' ? 'var(--hud-accent-primary)' :
+                                                stat.color === 'hud-accent-info' ? 'var(--hud-accent-info)' :
+                                                    stat.color === 'hud-accent-warning' ? 'var(--hud-accent-warning)' : 'var(--hud-accent-secondary)'
                                         }}
                                     />
                                 </div>

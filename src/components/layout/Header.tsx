@@ -10,7 +10,9 @@ import {
     LogOut,
     User,
     ChevronDown,
+  Sun, Moon,
 } from 'lucide-react'
+import { useTheme } from '../../context/ThemeContext'
 
 interface HeaderProps {
     onMenuToggle: () => void
@@ -27,6 +29,7 @@ const notifications = [
 const Header = ({ onMenuToggle }: HeaderProps) => {
     const [showNotifications, setShowNotifications] = useState(false)
     const [showProfile, setShowProfile] = useState(false)
+    const { isDark, toggleTheme } = useTheme()
 
     return (
         <header className="h-16 bg-hud-bg-secondary/80 backdrop-blur-md border-b border-hud-border-secondary px-6 flex items-center justify-between sticky top-0 z-40">
@@ -76,6 +79,10 @@ const Header = ({ onMenuToggle }: HeaderProps) => {
                         <Settings size={20} />
                     </Link>
                 </div>
+                {/* Theme Toggle */}
+                <button onClick={toggleTheme} className="p-2 rounded-lg hover:bg-hud-bg-hover transition-hud text-hud-text-secondary hover:text-hud-accent-primary">
+                  {isDark ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
 
                 {/* Divider */}
                 <div className="w-px h-8 bg-hud-border-secondary mx-2 hidden lg:block" />

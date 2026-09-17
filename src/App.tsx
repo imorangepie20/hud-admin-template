@@ -62,7 +62,7 @@ import ComingSoon from './pages/ComingSoon'
 
 function App() {
     return (
-        <Router>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <Routes>
                 {/* Auth Pages (No Layout) */}
                 <Route path="/login" element={<Login />} />
